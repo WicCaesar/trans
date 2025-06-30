@@ -1,0 +1,389 @@
+/* Custom styles beyond Tailwind */
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.fade-out {
+  animation: fadeOut 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+/* Game theme styles */
+.game-bg {
+  background-color: #0f0f1a;
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(91, 106, 214, 0.15) 0%, rgba(0, 0, 0, 0) 40%),
+    radial-gradient(circle at 90% 80%, rgba(120, 65, 255, 0.15) 0%, rgba(0, 0, 0, 0) 40%);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  border-radius: 1.5rem;
+  backdrop-filter: blur(10px);
+}
+
+.game-title {
+  @apply font-bold;
+  color: #7c3aed;
+  text-shadow: 0 0 15px rgba(124, 58, 237, 0.3);
+  letter-spacing: 0.5px;
+  font-size: 2.5rem;
+  position: relative;
+  z-index: 5;
+  transition: all 0.8s ease;
+}
+
+.gradient-border:hover .game-title {
+  color: #111827;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+  animation: none;
+}
+
+.game-input {
+  @apply w-full px-4 py-3 mt-2 bg-gray-900 border text-gray-100 transition-all duration-200;
+  border-color: rgba(99, 102, 241, 0.3);
+  box-shadow: 0 0 0 rgba(99, 102, 241, 0);
+  border-radius: 0.75rem;
+  height: 3rem;
+  font-size: 1rem;
+  width: 100%;
+}
+
+.game-input:focus {
+  border-color: rgba(99, 102, 241, 0.7);
+  box-shadow: 0 0 15px rgba(99, 102, 241, 0.3);
+  outline: none;
+  transform: translateY(-2px);
+}
+
+.game-input:hover {
+  border-color: rgba(99, 102, 241, 0.5);
+  box-shadow: 0 0 10px rgba(99, 102, 241, 0.2);
+}
+
+.game-btn {
+  @apply px-6 py-3 text-white font-medium transform hover:scale-105;
+  background-image: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+  border-radius: 0.75rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.game-btn:hover {
+  background-image: linear-gradient(135deg, #4338ca 0%, #6d28d9 100%);
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.5);
+}
+
+/* Estilos específicos para os botões da página inicial */
+.home-btn {
+  @apply text-lg font-semibold tracking-wide;
+  box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
+  min-width: 180px;
+  letter-spacing: 0.5px;
+  transform-origin: center;
+  transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.home-btn:hover {
+  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.6);
+  transform: translateY(-5px) scale(1.05);
+}
+
+.home-btn:active {
+  transform: translateY(2px) scale(0.98);
+}
+
+.game-btn::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transform: rotate(30deg);
+  transition: transform 0.5s;
+}
+
+.game-btn:hover::after {
+  transform: translateX(100%) rotate(30deg);
+}
+
+.game-link {
+  @apply text-indigo-400 hover:text-pink-400;
+  position: relative;
+  transition: all 0.8s ease;
+}
+
+.game-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: -2px;
+  left: 0;
+  background: linear-gradient(to right, #4f46e5, #ec4899);
+  transition: width 0.8s ease;
+}
+
+.game-link:hover::after {
+  width: 100%;
+}
+
+.game-divider {
+  @apply flex-grow;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(99, 102, 241, 0), rgba(99, 102, 241, 0.5), rgba(99, 102, 241, 0));
+}
+
+.game-section {
+  @apply bg-gray-900 bg-opacity-60 backdrop-filter backdrop-blur-sm;
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  border-radius: 1rem;
+  transition: all 0.8s ease;
+}
+
+.card-hover {
+  transition: transform 0.8s ease, box-shadow 0.8s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.8);
+}
+
+/* Custom form styles */
+.error-message {
+  @apply text-red-400 text-sm mt-1;
+}
+
+.success-message {
+  @apply text-green-400 text-sm mt-1;
+}
+
+body.game-theme {
+  background-color: #050508;
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(91, 106, 214, 0.05) 0%, rgba(0, 0, 0, 0) 40%),
+    radial-gradient(circle at 90% 80%, rgba(120, 65, 255, 0.05) 0%, rgba(0, 0, 0, 0) 40%),
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%234f46e5' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.neon-text {
+  text-shadow: 0 0 5px rgba(99, 102, 241, 0.5),
+               0 0 10px rgba(99, 102, 241, 0.3);
+}
+
+.glass-effect {
+  background: rgba(15, 15, 26, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  border-radius: 1rem;
+  transition: background-color 0.8s ease;
+}
+
+.glass-effect.gradient-border:hover {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.glass-effect.gradient-border:hover p {
+  color: #1f2937;
+  transition: color 0.8s ease;
+}
+
+.glass-effect.gradient-border p {
+  transition: color 0.8s ease;
+}
+
+.glass-effect.gradient-border:hover .neon-text {
+  text-shadow: 0 0 5px rgba(99, 102, 241, 0.3);
+  color: #4f46e5;
+}
+
+.glass-effect.gradient-border:hover .game-section {
+  background: rgba(240, 240, 250, 0.7);
+  border: 1px solid rgba(79, 70, 229, 0.3);
+  transition: all 0.8s ease;
+}
+
+.glass-effect.gradient-border:hover .game-section p {
+  color: #4f46e5;
+}
+
+.glass-effect.gradient-border:hover .text-indigo-400,
+.glass-effect.gradient-border:hover [data-feather] {
+  color: #4338ca;
+}
+
+.floating {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.gradient-border {
+  position: relative;
+  border-radius: 1.5rem;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #4f46e5, #7c3aed, #ec4899, #4f46e5);
+  z-index: -1;
+  border-radius: inherit;
+  background-size: 400%;
+  animation: border-animate 4s linear infinite;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.gradient-border:hover::before {
+  opacity: 0.7;
+}
+
+@keyframes border-animate {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 400% 0;
+  }
+}
+
+.main-description {
+  transition: color 0.8s ease;
+}
+
+.feature-text {
+  transition: color 0.8s ease;
+}
+
+.feature-icon {
+  transition: color 0.8s ease;
+}
+
+.glass-effect.gradient-border:hover .main-description {
+  color: #374151;
+}
+
+.glass-effect.gradient-border:hover .feature-text {
+  color: #111827;
+  font-weight: 500;
+}
+
+.glass-effect.gradient-border:hover .feature-icon {
+  color: #4f46e5;
+}
+
+.hover-shadow-glow:hover,
+.shadow-glow {
+  box-shadow: 0 0 15px rgba(99, 102, 241, 0.5);
+}
+
+/* Tournament Bracket Styles */
+.tournament-bracket {
+  font-family: inherit;
+}
+
+.bracket-round {
+  margin-bottom: 2rem;
+}
+
+.bracket-match {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.bracket-match:hover {
+  transform: translateY(-2px);
+}
+
+.bracket-match .bg-gray-800 {
+  transition: border-color 0.3s ease;
+}
+
+.bracket-match:hover .bg-gray-800 {
+  border-color: rgba(99, 102, 241, 0.8);
+}
+
+/* Tournament Status Animations */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(99, 102, 241, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.6);
+  }
+}
+
+.tournament-status-active {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Marquee Animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.marquee-text {
+  animation: marquee 15s linear infinite;
+}
+
+/* Timer Animation */
+@keyframes timer-pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.timer-urgent {
+  animation: timer-pulse 1s ease-in-out infinite;
+  color: #ef4444 !important;
+}
+
+/* Card Hover Effects */
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+}
